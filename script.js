@@ -86,7 +86,7 @@ function loadTeacherDetails() {
 
 function showVideos() {
     const teacher = localStorage.getItem("selectedTeacher");
-    const videoFile = teacherVideos[teacher] ? ./${teacherVideos[teacher]}?v=${new Date().getTime()} :  './default.mp4';
+    const videoFile = teacherVideos[teacher] `./${teacherVideos[teacher]}?v=${new Date().getTime()}`:  './default.mp4';
 
     const videoContainer = document.getElementById("videoContainer");
     videoContainer.innerHTML = `
