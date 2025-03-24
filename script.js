@@ -8,7 +8,7 @@ const courses = {
 };
 
 const teacherVideos = {
-    "Rakesh Yadav": "videos/video1.mp4",
+    "Rakesh Yadav": "./video1.mp4",
     "Gagan Sir": "./video2.mp4",
     "Arun Sharma": "./video3.mp4",
     "Rajesh Kumar": "./video4.mp4",
