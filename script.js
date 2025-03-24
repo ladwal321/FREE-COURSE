@@ -7,7 +7,6 @@ const courses = {
     "Reasoning": ["Arun Sharma", "R. S. Aggarwal", "Kiran Institute", "S. P. Bakshi", "B. S. Sijwali", "Lucent Reasoning"]
 };
 
-
 const teacherVideos = {
     "Rakesh Yadav": "video1.mp4",
     "Gagan Sir": "video2.mp4",
@@ -21,14 +20,14 @@ const teacherVideos = {
     "Plinth to Paramount": "video3.mp4",
     "A. K. Singh": "video4.mp4",
     "Hari Mohan Prasad": "video5.mp4",
-    "R. S. Aggarwal": "video5.mp4",
+    "R. S. Aggarwal": "video6.mp4",
 
-    "Dr. Vikas Divyakirti": "video2.mp4",
+    "Dr. Vikas Divyakirti": "video1.mp4",
     "Aman Sharma": "video2.mp4",
     "Manohar Pandey": "video3.mp4",
     "Ravi Singh": "video4.mp4",
     "K. K. Sharma": "video5.mp4",
-    "Lucent's GK": "video6.mp4",  // ✅ Added comma here
+    "Lucent's GK": "video6.mp4",
 
     "Dr. H. C. Verma": "video1.mp4",
     "P. Bahadur": "video2.mp4", 
@@ -44,15 +43,10 @@ const teacherVideos = {
     "Sumit Sarkar": "video5.mp4",
     "Romila Thapar": "video6.mp4",
 
-    "Arun Sharma": "video1.mp4",
-    "R. S. Aggarwal": "video2.mp4", 
-    "Kiran Institute": "video3.mp4", 
-    "S. P. Bakshi": "video4.mp4", 
-    "B. S. Sijwali": "video5.mp4", 
-    "Lucent Reasoning": "video6.mp4"
+    "Kiran Institute": "video1.mp4",
+    "B. S. Sijwali": "video2.mp4",
+    "Lucent Reasoning": "video3.mp4"
 };
-
-
 
 function generateCourse() {
     const courseBox = document.getElementById("courseBox");
@@ -69,13 +63,13 @@ function generateCourse() {
 }
 
 function loadCourseDetails() {
-    const course = localStorage.getItem("selectedCourse");
+    const course = localStorage.getItem("selectedCourse") || "Unknown Course";
     document.getElementById("courseTitle").innerText = course;
 
     const teacherBox = document.getElementById("teacherBox");
-    teacherBox.innerHTML = courses[course].map(teacher =>
+    teacherBox.innerHTML = courses[course]?.map(teacher =>
         `<div class="teacher-item" onclick="selectTeacher('${teacher}', '${course}')">${teacher}</div>`
-    ).join("");
+    ).join("") || "<p>No teachers available.</p>";
 }
 
 function selectTeacher(teacher, course) {
@@ -85,23 +79,26 @@ function selectTeacher(teacher, course) {
 }
 
 function loadTeacherDetails() {
-    const teacher = localStorage.getItem("selectedTeacher");
+    const teacher = localStorage.getItem("selectedTeacher") || "Unknown Teacher";
     document.getElementById("teacherName").innerText = teacher;
-    document.getElementById("courseName").innerText = `Teaching ${localStorage.getItem("selectedCourse")}`;
+    document.getElementById("courseName").innerText = `Teaching ${localStorage.getItem("selectedCourse") || "Unknown Course"}`;
 }
 
 function showVideos() {
     const teacher = localStorage.getItem("selectedTeacher");
-    const videoFile = teacherVideos[teacher] || "default.mp4";
+    const videoFile = teacherVideos[teacher] ? `./videos/${teacherVideos[teacher]}?v=${new Date().getTime()}` : "./videos/default.mp4";
 
     const videoContainer = document.getElementById("videoContainer");
     videoContainer.innerHTML = `
         <video id="teacherVideo" controls autoplay>
-            <source src="videos/${videoFile}" type="video/mp4">
+            <source src="${videoFile}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     `;
     videoContainer.style.display = "block";
+
+    // Debugging log
+    console.log("Playing video:", videoFile);
 }
 
 function goBack() {
