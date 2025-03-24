@@ -8,44 +8,44 @@ const courses = {
 };
 
 const teacherVideos = {
-    "Rakesh Yadav": "./video1.mp4",
-    "Gagan Sir": "./video2.mp4",
-    "Arun Sharma": "./video3.mp4",
-    "Rajesh Kumar": "./video4.mp4",
-    "Deepak Tiwari": "./video5.mp4",
-    "Vivek Kumar": "./video6.mp4",
+    "Rakesh Yadav": "video1.mp4",
+    "Gagan Sir": "video2.mp4",
+    "Arun Sharma": "video3.mp4",
+    "Rajesh Kumar": "video4.mp4",
+    "Deepak Tiwari": "video5.mp4",
+    "Vivek Kumar": "video6.mp4",
 
-    "Neetu Singh": "./video1.mp4",
-    "S. P. Bakshi": "./video2.mp4",
-    "Plinth to Paramount": "./video3.mp4",
-    "A. K. Singh": "./video4.mp4",
-    "Hari Mohan Prasad": "./video5.mp4",
-    "R. S. Aggarwal": "./video6.mp4",
+    "Neetu Singh": "video1.mp4",
+    "S. P. Bakshi": "video2.mp4",
+    "Plinth to Paramount": "video3.mp4",
+    "A. K. Singh": "video4.mp4",
+    "Hari Mohan Prasad": "video5.mp4",
+    "R. S. Aggarwal": "video6.mp4",
 
-    "Dr. Vikas Divyakirti": "./video1.mp4",
-    "Aman Sharma": "./video2.mp4",
-    "Manohar Pandey": "./video3.mp4",
-    "Ravi Singh": "./video4.mp4",
-    "K. K. Sharma": "./video5.mp4",
-    "Lucent's GK": "./video6.mp4",
+    "Dr. Vikas Divyakirti": "video1.mp4",
+    "Aman Sharma": "video2.mp4",
+    "Manohar Pandey": "video3.mp4",
+    "Ravi Singh": "video4.mp4",
+    "K. K. Sharma": "video5.mp4",
+    "Lucent's GK": "video6.mp4",
 
-    "Dr. H. C. Verma": "./video1.mp4",
-    "P. Bahadur": "./video2.mp4", 
-    "S. Chand": "./video3.mp4",
-    "Lakhmir Singh": "./video4.mp4", 
-    "M. P. Singh": "./video5.mp4", 
-    "Amit Gupta": "./video6.mp4",
+    "Dr. H. C. Verma": "video1.mp4",
+    "P. Bahadur": "video2.mp4", 
+    "S. Chand": "video3.mp4",
+    "Lakhmir Singh": "video4.mp4", 
+    "M. P. Singh": "video5.mp4", 
+    "Amit Gupta": "video6.mp4",
 
-    "Bipin Chandra": "./video1.mp4", 
-    "R. S. Sharma": "./video2.mp4", 
-    "Satish Chandra": "./video3.mp4", 
-    "K. L. Khurana": "./video4.mp4",
-    "Sumit Sarkar": "./video5.mp4",
-    "Romila Thapar": "./video6.mp4",
+    "Bipin Chandra": "video1.mp4", 
+    "R. S. Sharma": "video2.mp4", 
+    "Satish Chandra": "video3.mp4", 
+    "K. L. Khurana": "video4.mp4",
+    "Sumit Sarkar": "video5.mp4",
+    "Romila Thapar": "video6.mp4",
 
-    "Kiran Institute": "./video1.mp4",
-    "B. S. Sijwali": "./video2.mp4",
-    "Lucent Reasoning": "./video3.mp4"
+    "Kiran Institute": "video1.mp4",
+    "B. S. Sijwali": "video2.mp4",
+    "Lucent Reasoning": "video3.mp4"
 };
 
 function generateCourse() {
@@ -86,7 +86,7 @@ function loadTeacherDetails() {
 
 function showVideos() {
     const teacher = localStorage.getItem("selectedTeacher");
-    const videoFile = teacherVideos[teacher] ? `./videos/${teacherVideos[teacher]}?v=${new Date().getTime()}` : "./videos/default.mp4";
+    const videoFile = teacherVideos[teacher] ? ./${teacherVideos[teacher]}?v=${new Date().getTime()} :  './default.mp4';
 
     const videoContainer = document.getElementById("videoContainer");
     videoContainer.innerHTML = `
